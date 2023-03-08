@@ -1,9 +1,8 @@
 import re
 
-PUNCTUATIONS = ['.', ',', ':', ';', '?', '!', '-', '"', '“', '”',
-                '/', '\\', '<', '>', '(', ')', '[', ']', '{', '}']
-SPECIAL_CHARS = ['#', '$', '€', '%', '@', '*', '&',
-                 '_', '|', '=', '+', '^', '`', '~', '<<', '>>']
+
+PUNCTUATIONS = '.,:;?!-"“”/\\<>()[]{}'
+SPECIAL_CHARS = '#$€%@*&_|=+^`~<<>>'
 
 
 class TetunRegexTokenizer:
@@ -40,7 +39,7 @@ class TetunStandardTokenizer(TetunRegexTokenizer):
             # e.g.: Área, área, ne'e, Ne'ebé, kompañia, ida-ne'e, ida-ne'ebé.
             r"[A-Za-záéíóúñ]+(?:[-’'][A-Za-záéíóúñ]+)*"
             r"|"
-            r"[\d.]+"
+            r"[\d]+[\.\d]*[\,\d]*"
             r"|"
             r"[" + re.escape("".join(PUNCTUATIONS + SPECIAL_CHARS)) + "]"
         )
@@ -70,14 +69,14 @@ class TetunSimpleTokenizer(TetunRegexTokenizer):
         patterns = (
             r"[A-Za-záéíóúñ]+(?:[-’'][A-Za-záéíóúñ]+)*"
             r"|"
-            r"[\d.]+"
+            r"[\d]+[\.\d]*[\,\d]*"
         )
         super().__init__(patterns)
 
 
 if __name__ == '__main__':
     sample_text = """Macadique, 22 Novembru 2021 - MdF liuhosi kompañia AMOR, iha segunda (22/11) ne’e 
-    ofisializa programa "HABURAS" ho montante inisiál $23.000,00. 
+    ofisializa programa "HABURAS" ho montante inisiál $23.000.000,50 liu. 
     Nune'e progama ne'e sei sai programa ida-ne'ebé di'ak liu ba joven sira iha ne'ebá."""
 
     sample_text_lower = sample_text.lower()
@@ -89,4 +88,4 @@ if __name__ == '__main__':
     print(
         f"\nEXAMPLES (lowercase):\n========\n3) Blank tokenizer:\n {TetunBlankLineTokenizer().tokenize(sample_text_lower)} \n")
     print(
-        f"4) Basic tokenizer (lowercase):\n {TetunSimpleTokenizer().tokenize(sample_text_lower)}")
+        f"4) Simple tokenizer (lowercase):\n {TetunSimpleTokenizer().tokenize(sample_text_lower)}")

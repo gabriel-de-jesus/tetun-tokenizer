@@ -5,8 +5,6 @@ PUNCTUATIONS = ['.', ',', ':', ';', '?', '!', '-', '"', '“', '”',
 SPECIAL_CHARS = ['#', '$', '€', '%', '@', '*', '&',
                  '_', '|', '=', '+', '^', '`', '~', '<<', '>>']
 
-# tetun_pattern = r"[ÁÉÍÓÚ]*[áéíóú]*[A-Za-z]+[-’'ÁÉÍÓÚÑáéíóúñ]*[A-Za-z]*[-’'ÁÉÍÓÚáéíóú]*[A-Za-z]*[-’'ÁÉÍÓÚáéíóú]*[A-Za-z]*"
-
 
 class TetunRegexTokenizer:
     """Tokenizes text using regular expressions."""

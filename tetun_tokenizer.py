@@ -1,28 +1,23 @@
 import re
-
-
-PUNCTUATIONS = '.,:;?!-"“”/\\<>()[]{}'
-SPECIAL_CHARS = '#$€%@*&_|=+^`~<<>>'
+from typing import List
+from config import tetun_patterns
 
 
 class TetunRegexTokenizer:
     """Tokenizes text using regular expressions."""
 
-    def __init__(self, patterns: str, split: bool = False):
+    def __init__(self, patterns: str, split: bool = False) -> None:
         """
-        Args:
-            patterns (str): a regular expression to match the tokens.
-            split (bool): if True, use re.split() to tokenize text, else use re.findall().            
+        :param patterns: a regular expression to match the tokens.
+        :param split: if True, use re.split() to tokenize text, else use re.findall().            
         """
         self.patterns = patterns
         self.split = split
 
-    def tokenize(self, text: str) -> list:
-        """
-        Args:
-            text (str): the text to be tokenized.
-        Returns:
-            A list of tokens.
+    def tokenize(self, text: str) -> List[str]:
+        """ 
+        :param text: the text to be tokenized.
+        :return: a list of tokens.
         """
         if self.split:
             tokens = re.split(self.patterns, text)
@@ -32,60 +27,48 @@ class TetunRegexTokenizer:
 
 
 class TetunStandardTokenizer(TetunRegexTokenizer):
-    """ Tokenize text by word, punctuations, or special characters delimiters. """
+    """ Tokenize text by word, punctuations, symbols, or special characters delimiters. """
 
-    def __init__(self):
-        patterns = (
-            # e.g.: Área, área, ne'e, Ne'ebé, kompañia, ida-ne'e, ida-ne'ebé.
-            r"[A-Za-záéíóúñ]+(?:[-’'][A-Za-záéíóúñ]+)*"
-            r"|"
-            r"[\d]+[\.\d]*[\,\d]*"
-            r"|"
-            r"[" + re.escape("".join(PUNCTUATIONS + SPECIAL_CHARS)) + "]"
-        )
+    def __init__(self) -> None:
+        patterns = f"{tetun_patterns.TETUN_TEXT_PATTERN}|{tetun_patterns.DIGITS_PATTERN}|{tetun_patterns.PUNCTUATIONS_SYMBOLS_PATTERN}"
         super().__init__(patterns)
 
 
 class TetunWhiteSpaceTokenizer(TetunRegexTokenizer):
     """ Tokenize text by whitespace delimiter. """
 
-    def __init__(self):
-        patterns = r"\s+"
+    def __init__(self) -> None:
+        patterns = f"{tetun_patterns.WHITESPACE_PATTERNS}"
+        super().__init__(patterns, split=True)
+
+
+class TetunSentenceTokenizer(TetunRegexTokenizer):
+    """ Tokenize text by .?! delimiters. """
+
+    def __init__(self) -> None:
+        patterns = f"{tetun_patterns.SENTENCE_DELIMITER_PATTERN}"
         super().__init__(patterns, split=True)
 
 
 class TetunBlankLineTokenizer(TetunRegexTokenizer):
     """ Tokenize a text, treating any sequence of blank lines as a delimiter. """
 
-    def __init__(self, split=True):
-        patterns = r"s*\n\s*\n\s*"
+    def __init__(self) -> None:
+        patterns = f"{tetun_patterns.SEQUENCE_BLANKLINES_PATTERN}"
         super().__init__(patterns, split=True)
 
 
 class TetunSimpleTokenizer(TetunRegexTokenizer):
     """ Tokenize strings and numbers and ignore punctuations and special characters. """
 
-    def __init__(self):
-        patterns = (
-            r"[A-Za-záéíóúñ]+(?:[-’'][A-Za-záéíóúñ]+)*"
-            r"|"
-            r"[\d]+[\.\d]*[\,\d]*"
-        )
+    def __init__(self) -> None:
+        patterns = f"{tetun_patterns.TETUN_TEXT_PATTERN}|{tetun_patterns.DIGITS_PATTERN}"
         super().__init__(patterns)
 
 
-if __name__ == '__main__':
-    sample_text = """Macadique, 22 Novembru 2021 - MdF liuhosi kompañia AMOR, iha segunda (22/11) ne’e 
-    ofisializa programa "HABURAS" ho montante inisiál $23.000.000,50 liu. 
-    Nune'e progama ne'e sei sai programa ida-ne'ebé di'ak liu ba joven sira iha ne'ebá."""
+class TetunWordTokenizer(TetunRegexTokenizer):
+    """ Tokenize strings and ignore numbers, punctuations and special characters. """
 
-    sample_text_lower = sample_text.lower()
-
-    print(
-        f"\nEXAMPLES:\n========\n1) Standard tokenizer:\n {TetunStandardTokenizer().tokenize(sample_text)} \n")
-    print(
-        f"\nEXAMPLES (lowercase):\n========\n2) White Space tokenizer:\n {TetunWhiteSpaceTokenizer().tokenize(sample_text_lower)} \n")
-    print(
-        f"\nEXAMPLES (lowercase):\n========\n3) Blank tokenizer:\n {TetunBlankLineTokenizer().tokenize(sample_text_lower)} \n")
-    print(
-        f"4) Simple tokenizer (lowercase):\n {TetunSimpleTokenizer().tokenize(sample_text_lower)}")
+    def __init__(self) -> None:
+        patterns = f"{tetun_patterns.TETUN_TEXT_PATTERN}"
+        super().__init__(patterns)

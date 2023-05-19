@@ -1,10 +1,10 @@
 import re
 
 
-""" This file contains all the regular expressions for the Tetun tokenizer. """
+""" This module contains all the regular expressions for the Tetun tokenizer. """
 
-# E.g.: Ataúru, ne'ebé, ida-ne'ebé, Ofisiál, etc.
-TETUN_TEXT_PATTERN = r"[A-Za-zÂÁáãéêÉÊíÍóÓúÚñç]+(?:[-’'][A-Za-zÂÁáãéêÉÊíÍóÓúÚñç]+)*"
+# E.g.: Ataúru, ne'ebé, ida-ne'ebé, Ofisiál, Ângela, Conceição, Kompañia, etc.
+TETUN_TEXT_PATTERN = r"[A-Za-zÂÁÃâáãÉÊéêÍíÓóÚúÑñÇç]+(?:[-’'][A-Za-zÂÁÃâáãÉÊéêÍíÓóÚúÑñÇç]+)*"
 
 # E.g.: 20.000.000.000,45 or 20,000,000,000.45.
 # E.g.; char ',' or '.' followed digits will be ignored.

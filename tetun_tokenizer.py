@@ -8,7 +8,7 @@ class TetunRegexTokenizer:
 
     def __init__(self, patterns: str, split: bool = False) -> None:
         """
-        :param patterns: a regular expression to match the tokens.
+        :param patterns: regular expression patterns to match the tokens.
         :param split: if True, use re.split() to tokenize text, else use re.findall().            
         """
         self.patterns = patterns

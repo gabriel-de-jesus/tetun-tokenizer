@@ -1,9 +1,8 @@
-__pycache__/
+__pycache__
 .ipynb_checkpoints
 config/__pycache__
 .vscode
 Pipfile
 Pipfile.lock
 data/
-Pipfile
 Pipfile.lock

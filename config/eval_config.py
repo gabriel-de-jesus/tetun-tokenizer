@@ -7,4 +7,4 @@ INPUT_TEXT = Path("data/input.txt")
 HUMAN_TOKENS = Path("data/human_tokens.txt")
 
 # Tokenizer
-TOKENIZER = tetun_tokenizer.TetunWordTokenizer()
+TOKENIZER = tetun_tokenizer.TetunStandardTokenizer()

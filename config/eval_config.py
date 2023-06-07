@@ -6,5 +6,5 @@ import tetun_tokenizer
 INPUT_TEXT = Path("data/input.txt")
 HUMAN_TOKENS = Path("data/human_tokens.txt")
 
-# Tokenizer
+# Tokenizer - adjust the technique to be evaluated accordingly
 TOKENIZER = tetun_tokenizer.TetunStandardTokenizer()

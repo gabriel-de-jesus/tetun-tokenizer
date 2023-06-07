@@ -7,7 +7,7 @@ import re
 TETUN_TEXT_PATTERN = r"[A-Za-zÂÁÃâáãÉÊéêÍíÓóÚúÑñÇç]+(?:[-’'][A-Za-zÂÁÃâáãÉÊéêÍíÓóÚúÑñÇç]+)*"
 
 # E.g.: 20.000.000.000,45 or 20,000,000,000.45.
-# E.g.; char ',' or '.' followed digits will be ignored.
+# E.g.; char ',' or '.' at the end of digits will be ignored.
 DIGITS_PATTERN = r"\d+(?:[,.]\d+)*"
 
 # These punctuations and symbols will be tokenized as a token in the Tetun standard tokenizer.

@@ -4,7 +4,7 @@ from pathlib import Path
 
 class Evaluation:
     """ 
-    A class used for evaluating the accuracy of a tokenizer. It provides functionality 
+    This class is used for evaluating the accuracy of a tokenizer. It provides functionality 
     for visualizing the unmatched tokens. 
     """
 

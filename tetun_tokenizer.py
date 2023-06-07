@@ -4,7 +4,7 @@ from config import tetun_patterns
 
 
 class TetunRegexTokenizer:
-    """Tokenizes text using regular expressions."""
+    """ The base tokenizer class. """
 
     def __init__(self, patterns: str, split: bool = False) -> None:
         """

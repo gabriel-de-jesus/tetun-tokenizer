@@ -170,7 +170,7 @@ tetun
 ...
 ```
 
-### Citation
+## Citation
 If you use this repository or any of its contents for your research, academic work, or publication, we kindly request that you cite it as follows:
 
 ````
@@ -183,13 +183,12 @@ If you use this repository or any of its contents for your research, academic wo
 ````
 
 
-### Acknowledgement
+## Acknowledgement
 This work is financed by National Funds through the Portuguese funding agency, FCT - Fundação para a Ciência e a Tecnologia under the PhD scholarship grant number SFRH/BD/151437/2021.
 
 
 ## License
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/gabriel-de-jesus/tetun-tokenizer/blob/main/LICENSE)
 
 
 ## Contact Information

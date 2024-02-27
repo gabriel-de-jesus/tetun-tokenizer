@@ -174,11 +174,11 @@ tetun
 If you use this repository or any of its contents for your research, academic work, or publication, we kindly request that you cite it as follows:
 
 ````
-@inproceeding{jesus-nunes-2024,
-  author    = {Gabriel de Jesus and Sérgio Nunes},
-  title     = {Data Collection Pipeline for Low-Resource Languages: A Case Study on Constructing a Tetun Text Corpus},
-  year      = {2024},
-  note      = {Accepted at LREC-COOLING, 2024},
+@misc{jesus-nunes-2024,
+  author       = {Gabriel de Jesus and Sérgio Nunes},
+  title        = {Data Collection Pipeline for Low-Resource Languages: A Case Study on Constructing a Tetun Text Corpus},
+  year         = {2024},
+  note         = {Accepted at LREC-COOLING, 2024},
 }
 ````
 

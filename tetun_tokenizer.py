@@ -34,14 +34,6 @@ class TetunStandardTokenizer(TetunRegexTokenizer):
         super().__init__(patterns)
 
 
-class TetunWhiteSpaceTokenizer(TetunRegexTokenizer):
-    """ Tokenize text by whitespace delimiter. """
-
-    def __init__(self) -> None:
-        patterns = f"{tetun_patterns.WHITESPACE_PATTERNS}"
-        super().__init__(patterns, split=True)
-
-
 class TetunSentenceTokenizer(TetunRegexTokenizer):
     """ Tokenize text by .?! delimiters. """
 

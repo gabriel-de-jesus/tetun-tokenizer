@@ -24,7 +24,7 @@ pip install tetun-tokenizer
 Clone source code:
 
 ```
-git clone https://github.com/borulilitimornews/tetun-tokenizer.git
+git clone https://github.com/gabriel-de-jesus/tetun-tokenizer.git
 
 ```
 

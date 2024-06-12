@@ -165,4 +165,4 @@ This work is financed by National Funds through the Portuguese funding agency, F
 
 
 ## Contact Information
-If you have any questions, feedback, or concerns regarding the corpus, please feel free to contact mestregabrieldejesus[at]gmail.com.
+If you have any questions, feedback, or concerns regarding this package, please feel free to contact me at mestregabrieldejesus[at]gmail.com.

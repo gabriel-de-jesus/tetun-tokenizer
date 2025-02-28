@@ -2,6 +2,4 @@ __pycache__
 .ipynb_checkpoints
 config/__pycache__
 .vscode
-Pipfile.lock
 data/
-Pipfile.lock

@@ -1,15 +1,15 @@
 # Tetun Tokenizer
 
 ## Description
-Tetun tokenizer is a set of rule-based tokenization techniques for Tetun, where some techniques are devised specifically for Tetun based on the established Tetun INL standard and others are derived from commonly used tokenization rules.
+Tetun tokenizer is a set of rule-based tokenization techniques for Tetun, where some techniques are designed specifically for Tetun based on the established Tetun INL standard and others are derived from commonly used tokenization rules.
 
 
 ## Main Features
-- [ ] _Standard tokenizer:_ This tokenizer segments the input text into individual tokens based on word boundaries, punctuation, and special characters.
-- [ ] _Simple tokenizer:_ It extracts only strings and numbers from the input text while discarding punctuations and special characters.
-- [ ] _Word tokenizer:_ This tokenizer extracts word units from the input text, excluding numbers, punctuation, and special characters.
-- [ ] _Sentence tokenizer:_ It splits sentences using ending delimiters such as periods (.), question marks (?), and exclamation marks (!). Titles represented by periods, such as Dr. and Ph.D., are preserved.
-- [ ] _Blank line tokenizer:_ This tokenizer segments the input text based on the presence of blank lines.
+- [ ] _Standard tokenizer:_ Segments the input text into individual tokens based on word boundaries, punctuation, and special characters.
+- [ ] _Simple tokenizer:_ Extracts only strings and numbers from the input text while discarding punctuations and special characters.
+- [ ] _Word tokenizer:_ Extracts word units from the input text, excluding numbers, punctuation, and special characters.
+- [ ] _Sentence tokenizer:_ Splits sentences using ending delimiters such as periods (.), question marks (?), and exclamation marks (!). Titles represented by periods, such as Dr. and Ph.D., are preserved.
+- [ ] _Blank line tokenizer:_ Segments the input text based on the presence of blank lines.
 
 
 ## Installation
@@ -24,14 +24,14 @@ pip install tetun-tokenizer
 Clone source code:
 
 ```
-git clone https://github.com/borulilitimornews/tetun-tokenizer.git
+git clone https://github.com/gabriel-de-jesus/tetun-tokenizer.git
 
 ```
 
 
 ## Usage
 
-To utilize the Tetun tokenizer, simply import the desired tokenizer feature/class from the `tokenizer` module within the Tetun tokenizer package. Here are some examples demonstrating its usage:
+To use the Tetun tokenizer, import the desired tokenizer feature/class from the `tokenizer` module within the Tetun tokenizer package. Here are some examples demonstrating its usage:
 
 1. Utilizing  `TetunStandardTokenizer` to tokenize the input text.
 
@@ -44,7 +44,7 @@ tetun_tokenizer = TetunStandardTokenizer()
 # Input text
 text = "Ha'u mak ita-nia maluk di'ak. Ha'u iha $0.25 atu fó ba ita."
 
-# Tokenize the text
+# Tokenize the input text
 output = tetun_tokenizer.tokenize(text)
 
 # Print the output
@@ -64,7 +64,7 @@ from tetuntokenizer.tokenizer import TetunSentenceTokenizer
 
 tetun_tokenizer = TetunSentenceTokenizer()
 
-text = "Ha'u ema-ida ne'ebé baibain de'it. Tebes ga? Ita-nia maluk Dr. ka Ph.D sira hosi U.S.A mós dehan!"
+text = "Ha'u ema-ida ne'ebé baibain de'it. Ha'u-nia maluk balu iha grau Dr. ka Ph.D hosi USA."
 output = tetun_tokenizer.tokenize(text)
 print(output)
 ```
@@ -72,7 +72,7 @@ print(output)
 Expected output:
 
 ```
-["Ha'u ema-ida ne'ebé baibain de'it.", 'Tebes ga?', 'Ita-nia maluk Dr. ka Ph.D sira hosi U.S.A mós dehan!']
+["Ha'u ema-ida ne'ebé baibain de'it.", "Ha'u-nia maluk balu iha grau Dr. ka Ph.D hosi USA."]
 ```
 
 3. Utilizing `TetunBlankLineTokenizer` to tokenize the input text.
@@ -84,7 +84,7 @@ tetun_tokenizer = TetunBlankLineTokenizer()
 
 text = """
         Ha'u mak ita-nia maluk di'ak.
-        Ha'u iha $0.25 atu fó ba ita.
+        Ha'u iha de'it $25 hodi bele ajuda ita.
         """
 output = tetun_tokenizer.tokenize(text)
 print(output)
@@ -93,7 +93,7 @@ print(output)
 Expected output:
 
 ```
-["\n            Ha'u mak ita-nia maluk di'ak.\n            Ha'u iha $0.25 atu fó ba ita.\n            "]
+["\n            Ha'u mak ita-nia maluk di'ak.\n             Ha'u iha de'it $25 hodi bele ajuda ita.\n            "]
 ```
 
 4. Using `TetunSimpleTokenizer` to tokenize a given text.
@@ -103,7 +103,7 @@ from tetuntokenizer.tokenizer import TetunSimpleTokenizer
 
 tetun_tokenizer = TetunSimpleTokenizer()
 
-text = "Ha'u mak ita-nia maluk di'ak. Ha'u iha $0.25 atu fó ba ita."
+text = "Ha'u mak ita-nia maluk di'ak. Ha'u iha de'it $25 hodi bele ajuda ita."
 output = tetun_tokenizer.tokenize(text)
 print(output)
 ```
@@ -111,7 +111,7 @@ print(output)
 Expected output:
 
 ```
-["Ha'u", 'mak', 'ita-nia', 'maluk', "di'ak", "Ha'u", 'iha', '0.25', 'atu', 'fó', 'ba', 'ita']
+["Ha'u", 'mak', 'ita-nia', 'maluk', "di'ak", "Ha'u", 'iha', "de'it", '25', 'hodi', 'bele', 'ajuda', 'ita']
 ```
 
 5. Using `TetunWordTokenizer` to tokenize the input text.
@@ -121,7 +121,7 @@ from tetuntokenizer.tokenizer import TetunWordTokenizer
 
 tetun_tokenizer = TetunWordTokenizer()
 
-text = "Ha'u mak ita-nia maluk di'ak. Ha'u iha $0.25 atu fó ba ita."
+text = "Ha'u mak ita-nia maluk di'ak. Ha'u iha de'it $25 hodi bele ajuda ita."
 output = tetun_tokenizer.tokenize(text)
 print(output)
 ```
@@ -129,7 +129,7 @@ print(output)
 Expected output:
 
 ```
-["Ha'u", 'mak', 'ita-nia', 'maluk', "di'ak", "Ha'u", 'iha', 'atu', 'fó', 'ba', 'ita']
+["Ha'u", 'mak', 'ita-nia', 'maluk', "di'ak", "Ha'u", 'iha', "de'it", 'hodi', 'bele', 'ajuda', 'ita']
 ```
 
 You can also use the tokenizer to tokenize a text from a file. Below is an example:

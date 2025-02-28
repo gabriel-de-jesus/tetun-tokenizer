@@ -4,7 +4,7 @@ from config import tetun_patterns
 
 
 class TetunRegexTokenizer:
-    """ The base tokenizer class. """
+    """Base class for the tokenizer."""
 
     def __init__(self, patterns: str, split: bool = False) -> None:
         """
@@ -27,7 +27,7 @@ class TetunRegexTokenizer:
 
 
 class TetunStandardTokenizer(TetunRegexTokenizer):
-    """ Tokenize text by word, punctuations, symbols, or special characters delimiters. """
+    """Tokenize text by word, punctuations, symbols, or special characters delimiters."""
 
     def __init__(self) -> None:
         patterns = f"{tetun_patterns.TETUN_TEXT_PATTERN}|{tetun_patterns.DIGITS_PATTERN}|{tetun_patterns.PUNCTUATIONS_SYMBOLS_PATTERN}"
@@ -35,7 +35,7 @@ class TetunStandardTokenizer(TetunRegexTokenizer):
 
 
 class TetunSentenceTokenizer(TetunRegexTokenizer):
-    """ Tokenize text by .?! delimiters. """
+    """Tokenize text by .?! delimiters."""
 
     def __init__(self) -> None:
         patterns = f"{tetun_patterns.SENTENCE_DELIMITER_PATTERN}"
@@ -43,7 +43,7 @@ class TetunSentenceTokenizer(TetunRegexTokenizer):
 
 
 class TetunBlankLineTokenizer(TetunRegexTokenizer):
-    """ Tokenize a text, treating any sequence of blank lines as a delimiter. """
+    """Tokenize a text, treating any sequence of blank lines as a delimiter."""
 
     def __init__(self) -> None:
         patterns = f"{tetun_patterns.SEQUENCE_BLANKLINES_PATTERN}"
@@ -51,7 +51,7 @@ class TetunBlankLineTokenizer(TetunRegexTokenizer):
 
 
 class TetunSimpleTokenizer(TetunRegexTokenizer):
-    """ Tokenize strings and numbers and ignore punctuations and special characters. """
+    """Tokenize strings and numbers and ignore punctuations and special characters."""
 
     def __init__(self) -> None:
         patterns = f"{tetun_patterns.TETUN_TEXT_PATTERN}|{tetun_patterns.DIGITS_PATTERN}"
@@ -59,7 +59,7 @@ class TetunSimpleTokenizer(TetunRegexTokenizer):
 
 
 class TetunWordTokenizer(TetunRegexTokenizer):
-    """ Tokenize strings and ignore numbers, punctuations and special characters. """
+    """Tokenize strings and ignore numbers, punctuations and special characters."""
 
     def __init__(self) -> None:
         patterns = f"{tetun_patterns.TETUN_TEXT_PATTERN}"

@@ -3,7 +3,7 @@ from config import eval_config
 
 
 class EvaluateTokenizer:
-    """ This class runs evaluation module to evaluate the tokenizer techniques' effectiveness. """
+    """Runs the evaluation module to assess tokenizer effectiveness."""
 
     def __init__(self) -> None:
         self.eval = Evaluation(

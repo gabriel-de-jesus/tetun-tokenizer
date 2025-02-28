@@ -1,7 +1,7 @@
 import re
 
 
-""" This module contains all the regular expressions for the Tetun tokenizer. """
+"""Module containing all regular expressions for the Tetun tokenizer."""
 
 # E.g.: Ataúru, ne'ebé, ida-ne'ebé, Ofisiál, Ângela, Conceição, Kompañia, etc.
 TETUN_TEXT_PATTERN = r"[A-Za-zÂÁÃâáãÉÊéêÍíÓóÚúÑñÇç]+(?:[-’'][A-Za-zÂÁÃâáãÉÊéêÍíÓóÚúÑñÇç]+)*"

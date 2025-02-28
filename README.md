@@ -5,11 +5,11 @@ Tetun tokenizer is a set of rule-based tokenization techniques for Tetun, where 
 
 
 ## Main Features
-- [ ] _Standard tokenizer:_ Segments the input text into individual tokens based on word boundaries, punctuation, and special characters.
-- [ ] _Simple tokenizer:_ Extracts only strings and numbers from the input text while discarding punctuations and special characters.
-- [ ] _Word tokenizer:_ Extracts word units from the input text, excluding numbers, punctuation, and special characters.
-- [ ] _Sentence tokenizer:_ Splits sentences using ending delimiters such as periods (.), question marks (?), and exclamation marks (!). Titles represented by periods, such as Dr. and Ph.D., are preserved.
-- [ ] _Blank line tokenizer:_ Segments the input text based on the presence of blank lines.
+- [ ] _Standard tokenizer:_ This tokenizer segments the input text into individual tokens based on word boundaries, punctuation, and special characters.
+- [ ] _Simple tokenizer:_ It extracts only strings and numbers from the input text while discarding punctuation and special characters.
+- [ ] _Word tokenizer:_ This tokenizer extracts word units from the input text, excluding numbers, punctuation, and special characters.
+- [ ] _Sentence tokenizer:_ It splits sentences using ending delimiters such as periods (.), question marks (?), and exclamation marks (!). Titles represented by periods, such as Dr. and Ph.D., are preserved.
+- [ ] _Blank line tokenizer:_ This tokenizer segments the input text based on the presence of blank lines.
 
 
 ## Installation
@@ -132,65 +132,37 @@ Expected output:
 ["Ha'u", 'mak', 'ita-nia', 'maluk', "di'ak", "Ha'u", 'iha', "de'it", 'hodi', 'bele', 'ajuda', 'ita']
 ```
 
-You can also use the tokenizer to tokenize a text from a file. Below is an example:
-
-```python
-# Assume that we use Path instead of a string for the file path
-from pathlib import Path
-from tetuntokenizer.tokenizer import TetunSimpleTokenizer
-
-
-file_path = Path("myfile/example.txt")
-
-try:
-    with file_path.open('r', encoding='utf-8') as f:
-    contents = [line.strip() for line in f]
-except FileNotFoundError:
-    print(f"File not found at: {file_path}")
-
-# You can also lowercase the contents before tokenizing them.
-lowercase_contents = contents.lower()
-
-tetun_tokenizer = TetunSimpleTokenizer()
-
-output = '\n'.join(tetun_tokenizer.tokenize(str(lowercase_contents)))
-print(output)
-
-```
-
-This is the example of the output:
-
-```
-ha'u
-orgullu
-dezenvolve
-ha'u-nia
-lian
-tetun 
-...
-```
-
-### Citation
+## Citation
 If you use this repository or any of its contents for your research, academic work, or publication, we kindly request that you cite it as follows:
 
 ````
-@inproceeding{jesus-nunes-2024,
-  author    = {Gabriel de Jesus and Sérgio Nunes},
-  title     = {Data Collection Pipeline for Low-Resource Languages: A Case Study on Constructing a Tetun Text Corpus},
-  year      = {2024},
-  note      = {Accepted at LREC-COOLING, 2024},
-}
+@inproceedings{de-jesus-nunes-2024-labadain-crawler,
+    title = "Data Collection Pipeline for Low-Resource Languages: A Case Study on Constructing a Tetun Text Corpus",
+    author = "de Jesus, Gabriel  and
+      Nunes, S{\'e}rgio Sobral",
+    editor = "Calzolari, Nicoletta  and
+      Kan, Min-Yen  and
+      Hoste, Veronique  and
+      Lenci, Alessandro  and
+      Sakti, Sakriani  and
+      Xue, Nianwen",
+    booktitle = "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024)",
+    month = may,
+    year = "2024",
+    address = "Torino, Italia",
+    publisher = "ELRA and ICCL",
+    url = "https://aclanthology.org/2024.lrec-main.390",
+    pages = "4368--4380"
 ````
 
 
-### Acknowledgement
-This work is financed by National Funds through the Portuguese funding agency, FCT - Fundação para a Ciência e a Tecnologia under the PhD scholarship grant number SFRH/BD/151437/2021.
+## Acknowledgement
+This work is financed by National Funds through the Portuguese funding agency, FCT - Fundação para a Ciência e a Tecnologia under the PhD scholarship grant number SFRH/BD/151437/2021 (DOI 10.54499/SFRH/BD/151437/2021).
 
 
 ## License
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/gabriel-de-jesus/tetun-tokenizer/blob/main/LICENSE)
 
 
 ## Contact Information
-If you have any questions, feedback, or concerns regarding the corpus, please feel free to contact mestregabrieldejesus[at]gmail.com.
+If you have any questions, feedback, or concerns regarding this package, please feel free to contact me at mestregabrieldejesus[at]gmail.com.
